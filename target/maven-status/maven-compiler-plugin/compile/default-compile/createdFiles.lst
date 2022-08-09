@@ -1,0 +1,9 @@
+com\example\demo\models\ActualizacionModel.class
+com\example\demo\DemoApplication.class
+com\example\demo\utils\GeometryToJsonSerializer.class
+com\example\demo\controllers\ActualizacionController.class
+com\example\demo\services\ActualizacionService.class
+SpringFoxConfig.class
+com\example\demo\repositories\ActualizacionRepository.class
+com\example\demo\ServletInitializer.class
+com\example\demo\utils\JsonToGeometryDeserializer.class
