@@ -41,4 +41,13 @@ public class ActualizacionModel implements Serializable {
     @JsonDeserialize(using = JsonToGeometryDeserializer.class)
 	private MultiPolygon oa;
 
+	public ActualizacionModel(int id, String usuario, String observacion, Date fechaGeneracion, Date fechaFinActualizacion, Integer version) {
+		this.id = id;
+		this.usuario = usuario;
+		this.observacion = observacion;
+		this.fechaGeneracion = fechaGeneracion;
+		this.fechaFinActualizacion = fechaFinActualizacion;
+		this.version = version;
+	}
+
 }

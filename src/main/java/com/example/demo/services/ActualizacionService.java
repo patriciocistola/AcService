@@ -1,7 +1,10 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import com.example.demo.models.ActualizacionModel;
 import com.example.demo.repositories.ActualizacionRepository;
 
@@ -12,13 +15,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class ActualizacionService {
     @Autowired
-    ActualizacionRepository actualizacionRepository;    
+    ActualizacionRepository actualizacionRepository;
+
+    public ActualizacionService(ActualizacionRepository actualizacionRepository) {
+        this.actualizacionRepository = actualizacionRepository;
+    }
 
     public ArrayList<ActualizacionModel> obtenerActualizacion() {
        return  (ArrayList<ActualizacionModel>) actualizacionRepository.findAll();
     }   
 
     public Optional<ActualizacionModel> obtenerPorId(Integer id) { 
+
         return actualizacionRepository.findById(id);
     }
 
@@ -45,4 +53,12 @@ public class ActualizacionService {
     }
 
 
+    public Collection<ActualizacionModel> findByUsuario(String user) {
+
+        Collection<ActualizacionModel> todos = (Collection<ActualizacionModel>) actualizacionRepository.findAll();
+
+        return todos.stream().filter(
+                ActualizacionModel -> ActualizacionModel.getUsuario() == user)
+                .collect(Collectors.toList());
+    }
 }
