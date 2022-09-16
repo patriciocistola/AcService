@@ -29,13 +29,13 @@ class ActualizacionServiceTest {
                 )
         );
 
-        //Agrego el servicio y contruyo el repositorio
+        //Construyo el servicio con el repositorio
         ActualizacionService actualizacionService = new ActualizacionService(actualizacionRepository);
 
-        //Invoco al metodo a testiar
+        //Invoco el metodo a testiar
         Collection<ActualizacionModel> ActPorUsuario = actualizacionService.findByUsuario("patricio");
 
-        //Me quedo con los Ids de los que cumplen con el nombre de usuarios pasado por parametro
+        //Me quedo con los Ids de los que cumplen con el nombre de usuario pasado por parametro
         List<Integer> ActIds = ActPorUsuario.stream().map(ActualizacionModel -> ActualizacionModel.getId()).collect(Collectors.toList());
 
         //Comparo los ids que deberia traer con los que tengo en ActIds
